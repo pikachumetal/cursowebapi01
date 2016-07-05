@@ -6,7 +6,7 @@ using WebApplicationOWIN.Models;
 
 namespace WebApplicationOWIN.Controllers
 {
-    [RoutePrefix("api/v1/persons")]
+    [RoutePrefix("api/v2/persons")]
     public class PersonsController : ApiController
     {
         [Route("", Name = "ListPersons")]
@@ -17,8 +17,8 @@ namespace WebApplicationOWIN.Controllers
             {
                 //!? throw new InvalidOperationException("desastre!");
                 return Ok(new[] {
-                    new Person() { Id= 1, Name="Person 1"},
-                    new Person() { Id= 2, Name="Person 2"}
+                    new Person() { Id= 1, Name="Person 1 OWIN"},
+                    new Person() { Id= 2, Name="Person 2 OWIN"}
                 });
             }
             catch (Exception e)
@@ -36,9 +36,9 @@ namespace WebApplicationOWIN.Controllers
                 switch (id)
                 {
                     case 1:
-                        return this.Request.CreateResponse(new Person() { Id = 1, Name = "Person 1" });
+                        return this.Request.CreateResponse(new Person() { Id = 1, Name = "Person 1 OWIN" });
                     case 2:
-                        return this.Request.CreateResponse(new Person() { Id = 2, Name = "Person 2" });
+                        return this.Request.CreateResponse(new Person() { Id = 2, Name = "Person 2 OWIN" });
                     default:
                         return this.Request.CreateResponse(HttpStatusCode.NoContent);
                 }
