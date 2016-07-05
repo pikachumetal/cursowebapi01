@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace WebApplication2.Handlers
+namespace WebApplication.Handlers
 {
     public class MethodOverrideMessageHandler: DelegatingHandler
     {

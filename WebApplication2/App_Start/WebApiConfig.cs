@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using WebApplication2.Handlers;
+using WebApplication.Handlers;
 
-namespace WebApplication2
+namespace WebApplication
 {
     public static class WebApiConfig
     {

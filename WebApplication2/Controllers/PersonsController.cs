@@ -2,10 +2,10 @@
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WebApplication2.Models;
-using WebApplication2.Results;
+using WebApplication.Models;
+using WebApplication.Results;
 
-namespace WebApplication2.Controllers
+namespace WebApplication.Controllers
 {
     [RoutePrefix("api/v1/persons")]
     public class PersonsController : ApiController

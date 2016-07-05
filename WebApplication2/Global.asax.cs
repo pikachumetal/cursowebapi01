@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Http;
 
-namespace WebApplication2
+namespace WebApplication
 {
     public class WebApiApplication : HttpApplication
     {
