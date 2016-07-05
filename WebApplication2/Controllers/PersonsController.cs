@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebApplication2.Models;
+using WebApplication2.Results;
 
 namespace WebApplication2.Controllers
 {
@@ -11,18 +12,19 @@ namespace WebApplication2.Controllers
     {
         [Route("", Name = "ListPersons")]
         [HttpGet]
-        public HttpResponseMessage ListPersons()
+        public IHttpActionResult ListPersons()
         {
             try
             {
-                return this.Request.CreateResponse(new[] {
+                //!? throw new InvalidOperationException("desastre!");
+                return Ok(new[] {
                     new Person() { Id= 1, Name="Person 1"},
                     new Person() { Id= 2, Name="Person 2"}
                 });
             }
             catch (Exception e)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
+                return new ErrorResult(e);
             }
         }
 
@@ -65,6 +67,20 @@ namespace WebApplication2.Controllers
         [Route("{personId}", Name = "UpdatePerson")]
         [HttpPut]
         public HttpResponseMessage UpdatePerson(int personId, [FromBody]Person person)
+        {
+            try
+            {
+                return this.Request.CreateResponse(HttpStatusCode.NoContent);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
+            }
+        }
+
+        [Route("{personId}", Name = "DeletePerson")]
+        [HttpDelete]
+        public HttpResponseMessage DeletePerson(int personId)
         {
             try
             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using WebApplication2.Handlers;
 
 namespace WebApplication2
 {
@@ -19,6 +20,7 @@ namespace WebApplication2
             //    routeTemplate: "api/v1/{controller}/{id}",
             //    defaults: new { id = RouteParameter.Optional }
             //);
+            config.MessageHandlers.Add(new MethodOverrideMessageHandler());
         }
     }
 }
